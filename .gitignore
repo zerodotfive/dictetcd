@@ -1,0 +1,6 @@
+*.pyc
+*.bak
+!.gitignore
+!.gitkeep
+.idea/*
+.DS_Store
