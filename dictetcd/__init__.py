@@ -59,7 +59,11 @@ class DictEtcd(dict):
             del self[key]
         except etcd.EtcdKeyNotFound:
             pass
-        self.etcd_client.set(path, value)
+
+        if isinstance(value, tuple):
+            self.etcd_client.set(path, value[0], value[1])
+        else:
+            self.etcd_client.set(path, value)
 
         return None
 
